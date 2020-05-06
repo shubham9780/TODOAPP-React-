@@ -15,10 +15,10 @@ export default function List(props)
           {
             return <li  key={index}>
               
-              {task} 
-            
+              {task}  
+            &nbsp;
               <Button onClick={ deleteTodo(index) }>
-                  X
+                  Delete
               </Button>
             
             </li>

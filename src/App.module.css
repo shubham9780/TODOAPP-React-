@@ -1,8 +1,12 @@
 .header
 {
-  background-color: red;
+  background-color: rgb(110, 102, 155);
   color: white;
   height: 50px;
+  justify-content: center;
+  text-align: center;
+  font-size: larger;
+  font-weight: 600;
 }
 
 .header_blue

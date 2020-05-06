@@ -1,7 +1,13 @@
-.button
-{
-  background: darkolivegreen;
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
   color: white;
-  height: 50px;
-  min-width: 70px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0.5px 0.5px;
+  cursor: pointer;
+  border-radius: 12px;
 }
