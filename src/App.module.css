@@ -1,0 +1,24 @@
+.header
+{
+  background-color: red;
+  color: white;
+  height: 50px;
+}
+
+.header_blue
+{
+  background-color: blue;
+  color: white;
+  height: 50px;
+}
+
+.action_container
+{
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* .task_container
+{
+  
+} */

@@ -1,86 +1,85 @@
 import React from 'react';
 
-import './App.css';
+import styles from './App.module.css';
 
-//let input_value = "hello";
+import Header from './component/Header';
+import InputTodo from './component/Input';
+import List from './component/List';
+
 class App extends React.Component
 {
   constructor(props)
   {
     super(props);
+
   }
 
   state = {
     value:"",
-    todo:["apple","banana","p"]
+    todo:[]
+  }
+
+  componentDidMount()
+  {
+   
+    setTimeout(()=>
+    {
+      this.setState({ todo:[1,2,3,4,5,6,7,8] })
+    },100);
   }
 
   clicked = ()=>
   {
     const { value, todo } = this.state;
-    
+
     todo.push(value);
 
     this.setState( { todo , value:"" } );
     
   }
 
-  dltItem(i)
-  {
-     var newitem=this.state.todo;
-    delete newitem[i];
-     this.setState({todo:newitem});
-  }
-
   onInputChange = (event)=>
   {
     const value = event.target.value;
-     
+
     this.setState({ value });
   }
 
+  deleteTodo = (id)=>
+  {
+    return ()=>
+    {
+      const { todo } = this.state;
+
+      todo.splice(id, 1);
+
+      this.setState({ todo });
+    }
+
+  }
 
   render()
   {
     const  { value, todo } = this.state;
 
-
-
     return (
       <>
-          <div className="header">
-            <p>To Do App</p>
-          </div>
-          <div className="action_container">
-            <input value={value} onChange={this.onInputChange} placeholder="Type here ..."/>
-            <button onClick={this.clicked}>
-              save
-            </button>
-          </div>
-          <div className="task_container">
-            <ul>
-              {
-                todo.map((task, index)=>
-                {
-                  return <li key={index}>
-                    <input type="checkbox" style={{fontSize:'x-large'}}/>
-                    {task}
-                  <br/>
-                      <button onClick={this.dltItem.bind(this,index)}>Delete</button>
-                  
-                  </li>
-                })
-              }
-            </ul>
-          </div>
-      </>
-    );
+          <Header  class={styles.header}  id="random id" />
+          <InputTodo value={value} button_title="save" onChange={this.onInputChange} onSubmit={this.clicked}/>
+          <List  todo={ todo } deleteTodo={this.deleteTodo} />
+      </> 
+    )
   }
+
+
+
+
 }
 
 
 
 export default App;
+
   //state = {
 //s
 // function App() {
